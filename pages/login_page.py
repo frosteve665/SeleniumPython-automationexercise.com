@@ -9,6 +9,7 @@ class LoginPage(BasePage):
     LOGIN_BUTTON = (By.CSS_SELECTOR, "button[data-qa='login-button']")
     LOGIN_FORM = (By.CSS_SELECTOR, ".login-form")
     LOGIN_HEADING = (By.CSS_SELECTOR, ".login-form h2")
+    LOGIN_ERROR = (By.CSS_SELECTOR, "p[style='color: red;']")
 
     def is_login_form_visible(self):
         """Verify if login form is visible"""
