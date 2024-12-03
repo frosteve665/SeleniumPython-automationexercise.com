@@ -9,6 +9,7 @@ class HomePage(BasePage):
     SIGNUP_LOGIN_LINK = (By.CSS_SELECTOR, "a[href='/login']")
     HOME_SLIDER = (By.ID, "slider")
     LOGGED_IN_USER = (By.CSS_SELECTOR, "a:not(.btn)[href='/logout']")
+    LOGGED_IN_USERNAME = (By.CSS_SELECTOR, "li a[href='/logout']")
     
     def is_home_page_visible(self):
         """Verify home page is visible"""
