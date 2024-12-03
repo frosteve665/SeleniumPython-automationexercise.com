@@ -10,7 +10,8 @@ class HomePage(BasePage):
     HOME_SLIDER = (By.ID, "slider")
     LOGGED_IN_USER = (By.CSS_SELECTOR, "a:not(.btn)[href='/logout']")
     LOGGED_IN_USERNAME = (By.CSS_SELECTOR, "li a[href='/logout']")
-    
+    LOGOUT_BUTTON = (By.CSS_SELECTOR, "a[href='/logout']")
+
     def is_home_page_visible(self):
         """Verify home page is visible"""
         return self.is_visible(*self.HOME_SLIDER)
@@ -50,5 +51,12 @@ class HomePage(BasePage):
 
     def is_user_logged_in(self, username):
         """Verify if user is logged in"""
-        user_element = self.find_element(*self.LOGGED_IN_USER)
-        return f"Logged in as {username}" in user_element.text
+        try:
+            user_element = self.find_element(*self.LOGGED_IN_USERNAME)
+            return f"Logged in as {username}" in user_element.text
+        except:
+            return False
+    
+    def click_logout(self):
+        """Click logout button"""
+        self.click(*self.LOGOUT_BUTTON)
