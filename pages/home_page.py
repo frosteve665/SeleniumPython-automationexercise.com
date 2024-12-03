@@ -11,6 +11,7 @@ class HomePage(BasePage):
     LOGGED_IN_USER = (By.CSS_SELECTOR, "a:not(.btn)[href='/logout']")
     LOGGED_IN_USERNAME = (By.CSS_SELECTOR, "li a[href='/logout']")
     LOGOUT_BUTTON = (By.CSS_SELECTOR, "a[href='/logout']")
+    CONTACT_BUTTON = (By.CSS_SELECTOR, "a[href='/contact_us']")
 
     def is_home_page_visible(self):
         """Verify home page is visible"""
@@ -60,3 +61,7 @@ class HomePage(BasePage):
     def click_logout(self):
         """Click logout button"""
         self.click(*self.LOGOUT_BUTTON)
+
+    def click_contact_us(self):
+        """Click contact button"""
+        self.click(*self.CONTACT_BUTTON)
