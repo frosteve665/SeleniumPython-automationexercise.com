@@ -12,6 +12,7 @@ class HomePage(BasePage):
     LOGGED_IN_USERNAME = (By.CSS_SELECTOR, "li a[href='/logout']")
     LOGOUT_BUTTON = (By.CSS_SELECTOR, "a[href='/logout']")
     CONTACT_BUTTON = (By.CSS_SELECTOR, "a[href='/contact_us']")
+    TEST_CASES_LINK = (By.XPATH, "//a[contains(text(),'Test Cases')]")
 
     def is_home_page_visible(self):
         """Verify home page is visible"""
@@ -65,3 +66,8 @@ class HomePage(BasePage):
     def click_contact_us(self):
         """Click contact button"""
         self.click(*self.CONTACT_BUTTON)
+
+    def click_test_cases(self):
+        """Click Test Cases link with wait"""
+        self.wait.until(EC.element_to_be_clickable(self.TEST_CASES_LINK))
+        self.click(*self.TEST_CASES_LINK)

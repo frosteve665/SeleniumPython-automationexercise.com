@@ -85,3 +85,4 @@ class BasePage:
 
     def wait_for_url_contains(self, partial_url):
         return self.wait.until(EC.url_contains(partial_url))
+    
